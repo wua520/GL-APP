@@ -1,0 +1,84 @@
+# Android
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+*.apk
+*.ap_
+*.aab
+
+# Keystore files - 重要：不要上传签名文件！
+*.jks
+*.keystore
+keystore.properties
+
+# Local configuration
+local.properties
+
+# Gradle
+.gradle/
+build/
+
+# Android Studio
+.idea/
+*.iml
+.navigation/
+captures/
+output.json
+
+# NDK
+obj/
+
+# IntelliJ IDEA
+*.iws
+/out/
+
+# User-specific configurations
+.idea/caches/
+.idea/libraries/
+.idea/shelf/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/.name
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/datasources.xml
+.idea/dataSources.ids
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+# Kotlin
+.kotlin/
+
+# Maven (for fitness-server)
+fitness-server/target/
+fitness-server/.mvn/
+fitness-server/mvnw
+fitness-server/mvnw.cmd
+
+# Application configuration with sensitive data
+fitness-server/src/main/resources/application.yml
+fitness-server/src/main/resources/application-prod.yml
+
+# Release files
+app/release/
+上线准备/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

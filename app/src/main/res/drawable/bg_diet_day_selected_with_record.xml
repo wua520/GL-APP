@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 浅灰色填充 -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#9E9E9E" />
+        </shape>
+    </item>
+    <!-- 黑色圆圈边框 -->
+    <item>
+        <shape android:shape="oval">
+            <stroke
+                android:width="2dp"
+                android:color="@color/text_primary" />
+        </shape>
+    </item>
+</layer-list>

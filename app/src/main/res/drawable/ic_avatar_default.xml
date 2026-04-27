@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 默认头像 - 中性 -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
+    <!-- 脸部 -->
+    <path
+        android:fillColor="#E0E0E0"
+        android:pathData="M12,6c-2.76,0 -5,2.24 -5,5v2c0,2.76 2.24,5 5,5s5,-2.24 5,-5v-2c0,-2.76 -2.24,-5 -5,-5z"/>
+    <!-- 身体 -->
+    <path
+        android:fillColor="#9E9E9E"
+        android:pathData="M12,18c-3.31,0 -6,1.79 -6,4h12c0,-2.21 -2.69,-4 -6,-4z"/>
+</vector>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 灰白配色方案 -->
+    <color name="primary">#424242</color>
+    <color name="primary_dark">#303030</color>
+    <color name="primary_light">#616161</color>
+    <color name="secondary">#757575</color>
+    
+    <!-- 背景色 -->
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    
+    <!-- 基础色 -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="light_gray">#E0E0E0</color>
+    
+    <!-- 文字颜色 -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#9E9E9E</color>
+    
+    <!-- 分割线和边框 -->
+    <color name="divider">#E0E0E0</color>
+    <color name="border">#BDBDBD</color>
+    
+    <!-- 按钮颜色 -->
+    <color name="button_primary">#424242</color>
+    <color name="button_secondary">#F5F5F5</color>
+    
+    <!-- 状态颜色 -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    <color name="error">#F44336</color>
+    
+    <color name="ic_launcher_bg">#757575</color>
+</resources>
+

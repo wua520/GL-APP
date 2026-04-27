@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_training"
+        android:icon="@drawable/ic_nav_training"
+        android:title="@string/nav_training" />
+    <item
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_nav_history"
+        android:title="@string/nav_history" />
+    <item
+        android:id="@+id/navigation_exercises"
+        android:icon="@drawable/ic_nav_exercises"
+        android:title="@string/nav_exercises" />
+    <item
+        android:id="@+id/navigation_plans"
+        android:icon="@drawable/ic_nav_plans"
+        android:title="@string/nav_plans" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_nav_profile"
+        android:title="@string/nav_profile" />
+</menu>
+

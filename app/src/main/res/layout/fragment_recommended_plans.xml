@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="智能计划生成"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 健身目标选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="健身目标"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_goal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_muscle_gain"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="增肌"
+                android:textSize="12sp"
+                android:checked="true"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_fat_loss"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="减脂"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_maintain"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="维持"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- 训练经验选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="训练经验"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_experience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_beginner"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新手(0-6个月)"
+                android:textSize="12sp"
+                android:checked="true"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_intermediate"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中级(6-24个月)"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_advanced"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="高级(24个月以上)"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- 想强化部位选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="想强化部位"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_target_muscles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="false"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_chest"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="胸部"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_back"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="背部"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_legs"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="腿部"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_shoulders"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="肩部"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_arms"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手臂"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_core"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="核心"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- 训练天数选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="每周训练天数"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_training_days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_3_days"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3天"
+                android:textSize="12sp"
+                android:checked="true"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_4_days"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4天"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_5_days"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5天"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_6_days"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6天"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- 训练时长选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单次训练时长"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_training_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_short"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="短时高效(30-45分钟)"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_standard"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="标准训练(60-90分钟)"
+                android:textSize="12sp"
+                android:checked="true"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_long"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="超长训练(1小时以上)"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- 设备限制选择 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="训练环境"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp"
+            android:layout_marginBottom="10dp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_equipment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_home"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="家庭训练(徒手+哑铃)"
+                android:textSize="12sp"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_gym"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="健身房训练(全套器械)"
+                android:textSize="12sp"
+                android:checked="true"
+                app:chipBackgroundColor="@color/surface"
+                app:chipStrokeColor="@color/text_secondary" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- 生成按钮 -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_generate_plan"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="生成训练计划"
+            android:textSize="13sp"
+            app:cornerRadius="8dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 加载进度条 -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 推荐计划显示区域 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_recommended_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/surface"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:id="@+id/tv_plan_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="推荐计划"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_plan_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="14dp" />
+
+                <TextView
+                    android:id="@+id/tv_plan_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="14dp" />
+
+                <!-- 操作按钮区域 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_save_plan"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:text="保存计划"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="8dp"
+                        app:cornerRadius="8dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_regenerate"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="0dp"
+                        android:layout_height="38dp"
+                        android:layout_weight="1"
+                        android:text="重新生成"
+                        android:textSize="12sp"
+                        android:layout_marginStart="8dp"
+                        app:cornerRadius="8dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>
