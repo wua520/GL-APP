@@ -6,6 +6,25 @@
 
 健录是一款为认真对待健身的训练者打造的专业记录工具。它提供完整的训练日志系统，支持详细记录每个动作的组数、重量、次数和超级组训练，内置95个动作库覆盖全身肌群；配备科学的饮食管理功能，拥有200+食物数据库可自动计算营养成分和每日热量摄入；通过可视化图表展示训练趋势、肌肉群分析和个人记录突破，帮助你追踪体重、体脂率等身体数据变化。
 
+## 应用截图
+
+<p align="center">
+  <img src="images/a6c3b0a15747a70c383d0d92c5736b8a.png" width="120" alt="健录图标"/>
+</p>
+
+<p align="center">
+  <img src="images/160df6579cd5636445f7a2146e19cf7b.png" width="200" alt="训练记录"/>
+  <img src="images/3e798895fc8dcccdf318868e37806bd4.png" width="200" alt="数据统计"/>
+  <img src="images/4af7e612784d95316b6588054b5d7775.png" width="200" alt="饮食管理"/>
+  <img src="images/6a252d9e9dc99cb4692d194ce0b3eec0.png" width="200" alt="身体数据"/>
+</p>
+
+<p align="center">
+  <img src="images/79c74e944449ff4838178a72a3ea11f4.png" width="200" alt="动作库"/>
+  <img src="images/d30203c52293ba5c755ee689ef72b748.png" width="200" alt="训练日历"/>
+  <img src="images/f883a44a20f92f11579925f430029cf6.png" width="200" alt="训练详情"/>
+</p>
+
 ## 功能特性
 
 ### 训练记录
