@@ -11,7 +11,9 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import java.util.concurrent.TimeUnit
 
 object DeepSeekService {
-    private const val API_KEY = "sk-931db667c29e4893b4ebbc4375df61e6"
+    // API密钥应该从BuildConfig或本地配置文件读取，不要硬编码
+    // 在gradle.properties中配置: DEEPSEEK_API_KEY=your_key_here
+    private const val API_KEY = BuildConfig.DEEPSEEK_API_KEY
     private const val BASE_URL = "https://api.deepseek.com/chat/completions"
     
     private val client = OkHttpClient.Builder()

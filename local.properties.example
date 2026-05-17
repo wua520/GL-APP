@@ -1,0 +1,11 @@
+## This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+sdk.dir=YOUR_ANDROID_SDK_PATH
+
+# DeepSeek API密钥（不要提交到Git）
+# 获取地址：https://platform.deepseek.com/api_keys
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
