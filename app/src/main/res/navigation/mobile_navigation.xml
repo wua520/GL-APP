@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_training">
+
+    <fragment
+        android:id="@+id/navigation_training"
+        android:name="com.fitness.training.ui.training.TrainingContainerFragment"
+        android:label="@string/nav_training"
+        tools:layout="@layout/fragment_training_container" />
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.fitness.training.ui.history.HistoryContainerFragment"
+        android:label="@string/nav_history"
+        tools:layout="@layout/fragment_history_container" />
+
+    <fragment
+        android:id="@+id/navigation_exercises"
+        android:name="com.fitness.training.ui.exercises.ExercisesFragment"
+        android:label="@string/nav_exercises"
+        tools:layout="@layout/fragment_exercises" />
+
+    <fragment
+        android:id="@+id/navigation_plans"
+        android:name="com.fitness.training.ui.plans.PlansFragment"
+        android:label="@string/nav_plans"
+        tools:layout="@layout/fragment_plans" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.fitness.training.ui.profile.ProfileFragment"
+        android:label="@string/nav_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_diet"
+        android:name="com.fitness.training.ui.diet.DietFragment"
+        android:label="饮食记录"
+        tools:layout="@layout/fragment_diet" />
+
+    <fragment
+        android:id="@+id/navigation_body"
+        android:name="com.fitness.training.ui.body.BodyFragment"
+        android:label="体重体脂"
+        tools:layout="@layout/fragment_body" />
+
+    <fragment
+        android:id="@+id/navigation_one_rm"
+        android:name="com.fitness.training.ui.profile.OneRmFragment"
+        android:label="RM计算器"
+        tools:layout="@layout/fragment_one_rm" />
+
+    <fragment
+        android:id="@+id/navigation_achievement"
+        android:name="com.fitness.training.ui.profile.AchievementFragment"
+        android:label="我的成就"
+        tools:layout="@layout/fragment_achievement" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.fitness.training.ui.profile.SettingsFragment"
+        android:label="设置"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.fitness.training.ui.profile.AboutFragment"
+        android:label="关于"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/navigation_ai_assistant"
+        android:name="com.fitness.training.ui.profile.AiAssistantFragment"
+        android:label="智能助手"
+        tools:layout="@layout/fragment_ai_assistant" />
+</navigation>
+

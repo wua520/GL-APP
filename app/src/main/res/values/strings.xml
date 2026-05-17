@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">健录</string>
+    
+    <!-- Main Navigation -->
+    <string name="nav_training">训练</string>
+    <string name="nav_history">历史</string>
+    <string name="nav_statistics">统计</string>
+    <string name="nav_exercises">动作库</string>
+    <string name="nav_plans">计划</string>
+    <string name="nav_profile">我的</string>
+    
+    <!-- Training -->
+    <string name="start_training">开始训练</string>
+    <string name="end_training">结束训练</string>
+    <string name="add_exercise">添加动作</string>
+    <string name="add_set">添加组</string>
+    <string name="rest_timer">休息计时</string>
+    <string name="training_duration">训练时长</string>
+    
+    <!-- Exercise -->
+    <string name="exercise_name">动作名称</string>
+    <string name="sets">组数</string>
+    <string name="reps">次数</string>
+    <string name="weight">重量</string>
+    <string name="muscle_group">肌肉群</string>
+    <string name="equipment">器械</string>
+    
+    <!-- Statistics -->
+    <string name="total_volume">总训练量</string>
+    <string name="training_days">训练天数</string>
+    <string name="personal_record">个人记录</string>
+    <string name="one_rm">RM计算器</string>
+    
+    <!-- Common -->
+    <string name="save">保存</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="search">搜索</string>
+    <string name="kg">kg</string>
+    <string name="lbs">lbs</string>
+</resources>
+

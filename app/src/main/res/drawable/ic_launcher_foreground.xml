@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- 哑铃图标 -->
+    <!-- 左侧重量片外层 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M26,36 L26,72 L36,72 L36,36 Z"/>
+    <!-- 左侧重量片内层 -->
+    <path
+        android:fillColor="#E8E8E8"
+        android:pathData="M32,40 L32,68 L42,68 L42,40 Z"/>
+    
+    <!-- 中间杆 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M42,48 L66,48 L66,60 L42,60 Z"/>
+    
+    <!-- 右侧重量片内层 -->
+    <path
+        android:fillColor="#E8E8E8"
+        android:pathData="M66,40 L66,68 L76,68 L76,40 Z"/>
+    <!-- 右侧重量片外层 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M72,36 L72,72 L82,72 L82,36 Z"/>
+    
+</vector>

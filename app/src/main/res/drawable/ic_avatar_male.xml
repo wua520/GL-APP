@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 男性头像 - 短发 -->
+    <path
+        android:fillColor="#4A90D9"
+        android:pathData="M12,2C6.48,2 2,6.48 2,12s4.48,10 10,10 10,-4.48 10,-10S17.52,2 12,2z"/>
+    <!-- 脸部 -->
+    <path
+        android:fillColor="#FFE0BD"
+        android:pathData="M12,6c-2.76,0 -5,2.24 -5,5v2c0,2.76 2.24,5 5,5s5,-2.24 5,-5v-2c0,-2.76 -2.24,-5 -5,-5z"/>
+    <!-- 头发 -->
+    <path
+        android:fillColor="#3D3D3D"
+        android:pathData="M7,10c0,-2.76 2.24,-5 5,-5s5,2.24 5,5v1h-10v-1z"/>
+    <!-- 身体 -->
+    <path
+        android:fillColor="#4A90D9"
+        android:pathData="M12,18c-3.31,0 -6,1.79 -6,4h12c0,-2.21 -2.69,-4 -6,-4z"/>
+</vector>

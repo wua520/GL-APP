@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FitnessTraining" parent="Theme.Material3.Dark">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:navigationBarColor">@color/surface</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        
+        <!-- 全局字体缩小 -->
+        <item name="android:textAppearanceSmall">@style/TextAppearance.App.Small</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.App.Medium</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.App.Large</item>
+        
+        <!-- 全局按钮样式 -->
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.App.Button.Outlined</item>
+    </style>
+    
+    <!-- 自定义字体大小 -->
+    <style name="TextAppearance.App.Small" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">11sp</item>
+    </style>
+    
+    <style name="TextAppearance.App.Medium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">13sp</item>
+    </style>
+    
+    <style name="TextAppearance.App.Large" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">15sp</item>
+    </style>
+    
+    <!-- 全局按钮样式 - 字体小一点 -->
+    <style name="Widget.App.Button" parent="Widget.Material3.Button">
+        <item name="android:textSize">13sp</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+    
+    <style name="Widget.App.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textSize">13sp</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+    
+    <style name="Widget.App.Button.Tonal" parent="Widget.Material3.Button.TonalButton">
+        <item name="android:textSize">13sp</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/surface"
+    android:padding="16dp">
+
+    <!-- 标题 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tv_dialog_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="12月27日"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_close"
+            android:contentDescription="关闭" />
+    </LinearLayout>
+
+    <!-- 开始训练按钮 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_start_training"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="开始训练"
+        android:textSize="13sp"
+        app:icon="@drawable/ic_nav_training"
+        app:iconGravity="textStart"
+        app:cornerRadius="8dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 训练记录列表 -->
+    <TextView
+        android:id="@+id/tv_workouts_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当日训练记录"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_workouts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="300dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_no_workout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="当日无训练记录"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:paddingVertical="16dp"
+        android:visibility="gone" />
+
+</LinearLayout>
