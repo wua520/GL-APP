@@ -5,4 +5,6 @@ build/
 local.properties 
 *.apk 
 *.sql 
-*.jar 
+*.jar
+.env
+fitness-server/.env 
