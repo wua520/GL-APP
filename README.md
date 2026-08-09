@@ -217,30 +217,62 @@ Tool Calls (Read data, Generate plans, Save results)
 - `save_training_plan_draft`：保存待用户确认的计划 / *Save plan pending user confirmation*
 
 ##### **Nutrition Agent - 营养分析专家**
+##### **Nutrition Agent - Nutrition Analysis Expert**
+
 职责：分析饮食摄入，提供营养建议
+
+*Responsibility: Analyze dietary intake and provide nutritional advice*
+
 - 读取用户今天的饮食记录
+  - *Read user's daily diet records*
 - 读取用户今天的训练强度
+  - *Read user's training intensity for the day*
 - 计算营养素摄入（蛋白质、碳水、脂肪、热量）
+  - *Calculate nutrient intake (protein, carbs, fat, calories)*
 - 基于目标（增肌/减脂/保持）给出建议
+  - *Provide advice based on goals (bulk/cut/maintain)*
 
 专业性保证：
+
+*Professional Standards:*
+
 - 蛋白质摄入：增肌期1.6-2.2g/kg体重/天
+  - *Protein intake: 1.6-2.2g/kg bodyweight/day during bulking*
 - 碳水化合物：根据训练强度调整（大重量训练日多吃碳水）
+  - *Carbohydrates: Adjust based on training intensity (more carbs on heavy training days)*
 - 脂肪：不低于总热量的20%，保证激素合成
+  - *Fat: Not less than 20% of total calories to ensure hormone synthesis*
 
 ##### **Progress Agent - 数据分析专家**
+##### **Progress Agent - Data Analysis Expert**
+
 职责：分析训练进度，发现问题和机会
+
+*Responsibility: Analyze training progress, identify issues and opportunities*
+
 - 对比不同时期的力量数据（是否进步）
+  - *Compare strength data across different periods (progression check)*
 - 分析训练频率和容量（是否过度训练或训练不足）
+  - *Analyze training frequency and volume (overtraining or undertraining)*
 - 结合体重变化分析身体成分变化
+  - *Analyze body composition changes combined with weight changes*
 - 识别瓶颈：某个肌群长期没练、某个动作长期没进步
+  - *Identify bottlenecks: muscle groups neglected, exercises plateaued*
 
 #### 技术保障机制
+#### Technical Safeguard Mechanisms
 
 ##### 1. Tool Contract System（工具契约系统）
+##### 1. Tool Contract System
+
 **问题**：如果Nutrition Agent能调用`delete_all_training_data`怎么办？
 
+***Problem**: What if Nutrition Agent could call `delete_all_training_data`?*
+
 **解决方案**：每个Agent只能调用明确授权的工具
+
+***Solution**: Each Agent can only call explicitly authorized tools*
+
 ```java
 @Agent(name = "nutrition")
 @AuthorizedTools({
@@ -250,67 +282,131 @@ Tool Calls (Read data, Generate plans, Save results)
 })
 public class NutritionAgent {
     // 编译时保证：只能调用授权的工具
+    // Compile-time guarantee: Can only call authorized tools
+    
     // 运行时检查：调用未授权工具会被拦截
+    // Runtime check: Calls to unauthorized tools are intercepted
 }
 ```
 
 ##### 2. Safety Policy（安全策略）
+##### 2. Safety Policy
+
 **问题**：用户问"我膝盖疼怎么办"，AI不能诊断和开药
 
+***Problem**: User asks "My knee hurts, what should I do?" AI cannot diagnose or prescribe*
+
 **解决方案**：多层安全检查
+
+***Solution**: Multi-layer safety checks*
+
 - **医疗关键词检测**：疼痛、受伤、疾病、药物等
+  - *Medical keyword detection: pain, injury, disease, medication, etc.*
 - **免责声明**：明确告知"我不是医生，建议咨询专业医师"
+  - *Disclaimer: Clearly state "I'm not a doctor, please consult a professional physician"*
 - **工具权限限制**：AI无法访问用户的医疗记录
+  - *Tool permission limits: AI cannot access user's medical records*
 
 ##### 3. Audit Log（审计日志）
+##### 3. Audit Log
+
 **作用**：可追溯性和可调试性
+
+***Purpose**: Traceability and debuggability*
+
 - 记录每次AI调用：输入、输出、调用的工具、执行结果
+  - *Log every AI call: input, output, tools called, execution results*
 - 记录用户确认操作：什么时候确认、确认了什么内容
+  - *Log user confirmations: when confirmed, what was confirmed*
 - 记录失败情况：为什么失败、如何恢复
+  - *Log failures: why it failed, how to recover*
 
 **实际应用**：
+
+***Practical Applications**:*
+
 - 开发阶段：发现AI的错误模式，改进Prompt
+  - *Development: Identify AI error patterns, improve prompts*
 - 生产阶段：用户反馈问题时，可以回溯当时的对话
+  - *Production: When users report issues, can trace back to the original conversation*
 
 ### 📚 RAG Knowledge Base（检索增强生成）
+### 📚 RAG Knowledge Base (Retrieval-Augmented Generation)
 
 #### 为什么纯LLM不够？
+#### Why Pure LLM Isn't Enough?
+
 大语言模型（LLM）虽然强大，但在专业领域存在致命缺陷：
+
+*Large Language Models (LLMs), while powerful, have critical flaws in specialized domains:*
+
 1. **知识截止日期**：模型训练时的数据是有时间限制的，无法获取最新研究
+   - *Knowledge cutoff: Training data has a time limit, cannot access latest research*
 2. **幻觉问题**：在不确定时会"编造"看似合理但实际错误的信息
+   - *Hallucination: "Fabricates" seemingly reasonable but actually incorrect information when uncertain*
 3. **缺乏引用**：无法说明信息来源，用户无法验证
+   - *Lack of citations: Cannot indicate information sources, users cannot verify*
 
 **在健身领域的风险**：
+
+***Risks in Fitness Domain**:*
+
 - AI说"深蹲膝盖不能超过脚尖"（这是过时的观点）
+  - *AI says "Knees can't go past toes in squats" (this is an outdated view)*
 - AI说"增肌需要每天吃10个鸡蛋"（不科学且可能有害）
+  - *AI says "Muscle gain requires eating 10 eggs daily" (unscientific and potentially harmful)*
 - AI说"腰疼可以练硬拉"（可能加重伤病）
+  - *AI says "You can deadlift with back pain" (may worsen injury)*
 
 #### RAG架构：让AI基于可验证的知识回答
+#### RAG Architecture: Making AI Answer Based on Verifiable Knowledge
 
 ```
 用户提问 → 向量化查询
+User Question → Vectorize Query
               ↓
          知识库检索（相关文档）
+         Knowledge Base Search (Relevant Documents)
               ↓
          LLM生成回答（基于检索到的文档）
+         LLM Generate Answer (Based on Retrieved Documents)
               ↓
          返回答案 + 知识来源
+         Return Answer + Knowledge Source
 ```
 
 ##### 知识库内容
+##### Knowledge Base Content
+
 我们内置了专业的健身知识文档（YAML格式）：
 
+*We've built-in professional fitness knowledge documents (YAML format):*
+
 **训练原理**（training-principles-2026.03.yml）
+
+*Training Principles (training-principles-2026.03.yml)*
+
 - 渐进超负荷原理：如何科学增加训练强度
+  - *Progressive overload: How to scientifically increase training intensity*
 - 训练容量：组数、次数、频率的科学配比
+  - *Training volume: Scientific ratio of sets, reps, and frequency*
 - 周期化训练：如何安排不同阶段的训练
+  - *Periodization: How to arrange training in different phases*
 - 肌肥大机制：机械张力、代谢压力、肌肉损伤
+  - *Hypertrophy mechanisms: Mechanical tension, metabolic stress, muscle damage*
 
 **营养基础**（nutrition-basics-2026.03.yml）
+
+*Nutrition Basics (nutrition-basics-2026.03.yml)*
+
 - 三大营养素：蛋白质、碳水、脂肪的作用和摄入量
+  - *Macronutrients: Roles and intake of protein, carbs, and fat*
 - 增肌期营养：热量盈余、蛋白质摄入、碳水时机
+  - *Bulking nutrition: Caloric surplus, protein intake, carb timing*
 - 减脂期营养：热量赤字、保持肌肉、饮食心理
+  - *Cutting nutrition: Caloric deficit, muscle preservation, diet psychology*
 - 补剂指南：肌酸、蛋白粉、BCAA等的作用和必要性
+  - *Supplement guide: Effects and necessity of creatine, protein powder, BCAA, etc.*
 
 **恢复知识**（recovery-basics-2026.03.yml）
 - 睡眠的重要性：生长激素分泌、肌肉修复
@@ -323,86 +419,65 @@ public class NutritionAgent {
 - 如何查看进度统计
 
 ##### 技术实现
+##### Technical Implementation
 
 **向量化（Embedding）**
+
+*Vectorization (Embedding)*
+
 使用Ollama本地运行`nomic-embed-text`模型：
+
+*Using Ollama to locally run `nomic-embed-text` model:*
+
 - 知识文档被切分成小块（chunk），每块向量化
+  - *Knowledge documents are split into chunks, each vectorized*
 - 用户问题也被向量化
+  - *User questions are also vectorized*
 - 通过向量相似度找到最相关的知识块
+  - *Find most relevant knowledge chunks through vector similarity*
 
 **向量存储（Qdrant）**
+
+*Vector Storage (Qdrant)*
+
 - 高性能的向量数据库
+  - *High-performance vector database*
 - 支持过滤和混合搜索
+  - *Supports filtering and hybrid search*
 - 可以根据文档类型、日期、标签筛选
-
-**检索策略**
-```java
-// 1. 向量化用户问题
-float[] queryVector = embeddingClient.embed(userQuestion);
-
-// 2. 检索Top-K相关文档
-List<KnowledgeChunk> chunks = vectorStore.search(queryVector, topK=3);
-
-// 3. 构建上下文
-String context = chunks.stream()
-    .map(c -> c.getContent())
-    .collect(Collectors.joining("\n\n"));
-
-// 4. LLM生成回答
-String prompt = """
-基于以下专业知识回答用户问题：
-{context}
-
-用户问题：{question}
-
-要求：
-1. 只基于提供的知识回答
-2. 如果知识中没有相关内容，明确说明
-3. 引用知识来源
-""";
-```
-
-##### 知识库的可扩展性
-**YAML格式**便于非技术人员编辑：
-```yaml
-document_id: training-principles-001
-title: "渐进超负荷原理"
-category: training
-date: 2026-03-01
-content: |
-  渐进超负荷（Progressive Overload）是力量训练最核心的原则。
-  
-  含义：要让肌肉持续生长，必须逐步增加训练刺激。
-  
-  实现方式：
-  1. 增加重量（最直接）
-  2. 增加组数或次数
-  3. 缩短组间休息时间
-  4. 改变动作节奏（增加离心时间）
-  
-  注意：不是每次训练都要增加，建议每2-4周评估一次进步。
-citations:
-  - "Schoenfeld, B. J. (2010). The mechanisms of muscle hypertrophy"
-  - "Kraemer & Ratamess (2004). Fundamentals of resistance training"
-```
-
-**用户也可以添加自己的知识**：
-- 健身房的器械使用说明
-- 教练给的个性化建议
-- 自己的训练心得
+  - *Can filter by document type, date, and tags*
 
 #### 效果对比
+#### Effect Comparison
 
 **不使用RAG**：
+
+*Without RAG:*
+
 > 用户：增肌一天要吃多少蛋白质？
+> 
+> *User: How much protein should I eat per day for muscle gain?*
+> 
 > AI：建议每公斤体重2-3克。（过高，可能是幻觉）
+> 
+> *AI: Recommend 2-3 grams per kg bodyweight. (Too high, possibly hallucination)*
 
 **使用RAG**：
+
+*With RAG:*
+
 > 用户：增肌一天要吃多少蛋白质？
+> 
+> *User: How much protein should I eat per day for muscle gain?*
+> 
 > AI：根据《营养基础》文档，增肌期蛋白质摄入建议为每公斤体重1.6-2.2克。
 > 更多并不总是更好，超过2.2g/kg并不会带来额外的肌肉增长。
 > 
+> *AI: According to the "Nutrition Basics" document, the recommended protein intake during bulking is 1.6-2.2 grams per kg bodyweight. More isn't always better; exceeding 2.2g/kg doesn't bring additional muscle growth.*
+> 
 > 知识来源：nutrition-basics-2026.03.yml
+> 
+> *Knowledge Source: nutrition-basics-2026.03.yml*
 
 ### 🔄 本地写入恢复机制（Local Write Recovery）
 
