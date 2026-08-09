@@ -5,80 +5,152 @@
 [![Spring Boot](https://img.shields.io/badge/Backend-Spring%20Boot-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![AI](https://img.shields.io/badge/AI-Multi--Agent-orange.svg)](https://www.deepseek.com/)
 
-[English](#english-version) | 中文
+中文 | [English](#english-version)
 
 ---
 
 ## 🎯 为什么需要这个应用？
+## 🎯 Why This App?
 
 ### 问题：传统健身App的三大痛点
+### Problem: Three Major Pain Points of Traditional Fitness Apps
 
 #### 1. 缺乏真正的个性化指导
+#### 1. Lack of True Personalization
+
 市面上大多数健身App提供的是固定的训练模板：初学者计划、增肌计划、减脂计划等。但每个人的情况都不同：
+
+*Most fitness apps offer fixed training templates: beginner programs, muscle gain plans, fat loss plans, etc. However, everyone's situation is different:*
+
 - **训练基础不同**：新手和老手的训练容量、恢复能力完全不同
+  - *Different training backgrounds: Beginners and advanced lifters have completely different training capacities and recovery abilities*
 - **时间安排不同**：有人一周能练5天，有人只能练3天
+  - *Different schedules: Some can train 5 days a week, others only 3*
 - **身体状况不同**：有人膝盖有伤，有人腰椎间盘突出
+  - *Different physical conditions: Some have knee injuries, others have herniated discs*
 - **目标不同**：有人想增肌，有人想提高运动表现，有人只是想健康
+  - *Different goals: Muscle gain, athletic performance, or just staying healthy*
 
 固定模板无法考虑这些个体差异，导致：新手不知道从哪里开始，老手觉得计划太简单或不适合，有伤病的人不敢练。
 
+*Fixed templates can't account for these individual differences, resulting in: beginners not knowing where to start, advanced users finding plans too simple or unsuitable, and injured individuals afraid to train.*
+
 #### 2. 数据孤立，无法提供整体性建议
+#### 2. Isolated Data, Unable to Provide Holistic Advice
+
 大多数App把功能模块割裂开：
+
+*Most apps fragment their features into isolated modules:*
+
 - **训练模块**：只记录你练了什么
+  - *Training module: Only records what you trained*
 - **饮食模块**：只记录你吃了什么
+  - *Diet module: Only records what you ate*
 - **身体数据**：只记录你的体重变化
+  - *Body data: Only records your weight changes*
 
 但实际上，这三者是紧密关联的：
+
+*In reality, these three are tightly interconnected:*
+
 - 你今天练了大重量深蹲，应该多吃碳水帮助恢复
+  - *You did heavy squats today? You should eat more carbs to aid recovery*
 - 你最近体重停滞了，可能是训练容量不够，或者饮食摄入不足
+  - *Your weight plateaued? It might be insufficient training volume or inadequate nutrition*
 - 你的力量进步很快，但体重没变，说明你在"重组身体成分"
+  - *Your strength is increasing rapidly but weight unchanged? You're "recomposing" your body*
 
 **没有AI的帮助，用户很难把这些数据串联起来，得出有价值的洞察。**
 
+***Without AI assistance, users struggle to connect these data points and derive valuable insights.***
+
 #### 3. 依赖网络且隐私担忧
+#### 3. Network Dependency and Privacy Concerns
+
 许多健身App强制要求注册账号、上传数据到云端：
+
+*Many fitness apps force account registration and cloud data upload:*
+
 - **离线不可用**：没网络就打不开App，更别说记录训练
+  - *Offline unavailable: Can't even open the app without internet, let alone log workouts*
 - **隐私风险**：你的身体数据、训练习惯都在别人的服务器上
+  - *Privacy risks: Your body data and training habits are on someone else's servers*
 - **服务依赖**：公司倒闭或停服，你的数据就没了
+  - *Service dependency: If the company shuts down, your data is gone*
 
 对于重视隐私的用户来说，这是不可接受的。
 
+*For privacy-conscious users, this is unacceptable.*
+
 ### 解决方案：AI + 本地优先架构
+### Solution: AI + Local-First Architecture
 
 健录的核心理念是：**用AI解决个性化问题，用本地化保护隐私**。
 
+*FitnessLog's core philosophy: **Use AI to solve personalization, use local-first to protect privacy**.*
+
 #### Multi-Agent AI System
+
 我们不是简单地把ChatGPT接入App，而是构建了一个**专业的Multi-Agent系统**：
+
+*We didn't simply integrate ChatGPT into the app, but built a **professional Multi-Agent system**:*
+
 - **Supervisor Agent** 理解你的需求，判断需要哪个领域的专家
+  - *Understands your needs and determines which domain expert is required*
 - **Training Agent** 是训练专家，懂渐进超负荷、训练容量、周期化
+  - *Training expert who understands progressive overload, training volume, and periodization*
 - **Nutrition Agent** 是营养专家，会根据你的目标和训练强度给建议
+  - *Nutrition expert who provides advice based on your goals and training intensity*
 - **Progress Agent** 是数据分析师，帮你发现训练中的问题和进步
+  - *Data analyst who helps you discover training issues and progress*
 
 **为什么这样设计？** 因为健身是个多学科交叉的领域，单一AI容易"似是而非"，多Agent分工协作才能保证专业性。
 
+***Why this design?** Because fitness is a multidisciplinary field. A single AI tends to be "seemingly correct but actually wrong." Multiple specialized agents working together ensure professionalism.*
+
 #### 本地优先 + AI可编辑
+#### Local-First + Editable AI
+
 - **数据完全本地存储**：你的所有数据都在手机上，不强制上云
+  - *Complete local data storage: All your data stays on your phone, no forced cloud upload*
 - **AI生成的内容可预览和编辑**：不是黑盒，你可以调整AI的建议
+  - *AI-generated content is previewable and editable: Not a black box, you can adjust AI suggestions*
 - **离线依然可用**：基础功能（训练记录、数据统计）完全不需要网络
+  - *Offline functionality: Core features (workout logging, statistics) work completely offline*
 - **云端同步是可选的**：需要多设备同步或AI助手时才连接服务器
+  - *Optional cloud sync: Only connect to server when you need multi-device sync or AI assistant*
 
 这种架构平衡了**AI的智能化**和**本地化的隐私保护**，用户始终掌握主动权。
 
+*This architecture balances **AI intelligence** with **local privacy protection**, keeping users always in control.*
+
 ## ✨ 技术亮点
+## ✨ Technical Highlights
 
 ### 🤖 Multi-Agent AI System
 
 #### 为什么不用单一AI？
+#### Why Not a Single AI?
+
 健身是一个高度专业化的领域，涉及运动生理学、营养学、康复医学等多个学科。单一的通用AI（如直接接入ChatGPT）存在严重问题：
+
+*Fitness is a highly specialized field involving exercise physiology, nutrition, rehabilitation medicine, and more. A single general-purpose AI (like directly integrating ChatGPT) has serious issues:*
+
 - **知识不够深入**：对于"渐进超负荷"、"训练容量"、"RPE"等专业概念理解肤浅
+  - *Insufficient depth: Shallow understanding of professional concepts like "progressive overload," "training volume," "RPE"*
 - **容易产生幻觉**：可能编造不存在的训练方法或营养建议
+  - *Prone to hallucinations: May fabricate non-existent training methods or nutritional advice*
 - **无法整合数据**：不知道如何关联训练数据、饮食数据、身体数据
+  - *Cannot integrate data: Doesn't know how to correlate training, diet, and body data*
 - **缺乏安全边界**：可能给出危险的医疗建议
+  - *Lacks safety boundaries: May give dangerous medical advice*
 
 #### 我们的Multi-Agent架构
+#### Our Multi-Agent Architecture
 
 ```
 用户请求 → Supervisor Agent（任务分发）
+User Request → Supervisor Agent (Task Distribution)
               ↓
     ┌─────────┼─────────┐
     ↓         ↓         ↓
@@ -86,34 +158,63 @@ Training  Nutrition  Progress
  Agent      Agent      Agent
     ↓         ↓         ↓
 工具调用（读取数据、生成计划、保存结果）
+Tool Calls (Read data, Generate plans, Save results)
 ```
 
 ##### **Supervisor Agent - 任务调度中心**
+##### **Supervisor Agent - Task Orchestration Center**
+
 职责：理解用户意图，决定调用哪个专业Agent
+
+*Responsibility: Understand user intent and decide which specialized agent to call*
+
 - 用户说"我想增肌" → 调用Training Agent生成训练计划
+  - *User says "I want to build muscle" → Call Training Agent to generate training plan*
 - 用户说"我今天吃了什么" → 调用Nutrition Agent分析营养摄入
+  - *User says "What did I eat today" → Call Nutrition Agent to analyze nutrition intake*
 - 用户说"最近进步慢了" → 调用Progress Agent分析训练数据
+  - *User says "My progress slowed down" → Call Progress Agent to analyze training data*
 
 技术保障：
+
+*Technical Safeguards:*
+
 - **意图识别**：基于LLM理解自然语言，提取关键信息（目标、频率、限制条件等）
+  - *Intent Recognition: LLM-based natural language understanding to extract key information (goals, frequency, constraints, etc.)*
 - **上下文管理**：记录对话历史，支持多轮对话
+  - *Context Management: Record conversation history, support multi-turn dialogue*
 - **安全拦截**：识别医疗相关请求，拒绝给出诊断或治疗建议
+  - *Safety Interception: Identify medical-related requests, refuse to give diagnosis or treatment advice*
 
 ##### **Training Agent - 训练计划专家**
+##### **Training Agent - Training Plan Expert**
+
 职责：生成科学的训练计划，考虑渐进超负荷原则
+
+*Responsibility: Generate scientific training plans considering progressive overload principles*
+
 - 读取用户的历史训练数据（最近练了什么、力量水平如何）
+  - *Read user's training history (recent workouts, strength levels)*
 - 读取用户的身体数据（身高体重、训练经验）
+  - *Read user's body data (height, weight, training experience)*
 - 基于运动科学原理生成计划：
+  - *Generate plans based on exercise science:*
   - **选择合适的动作**：考虑目标肌群、设备可用性
+    - *Select appropriate exercises: Consider target muscle groups and equipment availability*
   - **安排训练容量**：组数、次数、重量的科学配比
+    - *Arrange training volume: Scientific ratio of sets, reps, and weight*
   - **考虑恢复时间**：不会让同一肌群连续大重量训练
+    - *Consider recovery time: Avoid consecutive heavy training of the same muscle group*
 
 授权工具：
-- `read_user_profile`：读取用户基本信息
-- `read_training_history`：读取历史训练记录
-- `read_body_data`：读取身体数据变化
-- `generate_training_plan`：生成训练计划草案
-- `save_training_plan_draft`：保存待用户确认的计划
+
+*Authorized Tools:*
+
+- `read_user_profile`：读取用户基本信息 / *Read user basic information*
+- `read_training_history`：读取历史训练记录 / *Read training history*
+- `read_body_data`：读取身体数据变化 / *Read body data changes*
+- `generate_training_plan`：生成训练计划草案 / *Generate training plan draft*
+- `save_training_plan_draft`：保存待用户确认的计划 / *Save plan pending user confirmation*
 
 ##### **Nutrition Agent - 营养分析专家**
 职责：分析饮食摄入，提供营养建议
