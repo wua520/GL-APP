@@ -772,12 +772,15 @@ AlertDialog(
   - *Sensitive medical advice automatically intercepted*
 
 ## 📱 应用截图
+## 📱 App Screenshots
 
 <p align="center">
   <img src="images/a6c3b0a15747a70c383d0d92c5736b8a.png" width="120" alt="健录图标"/>
 </p>
 
 ### AI智能助手
+### AI Assistant
+
 <p align="center">
   <img src="images/160df6579cd5636445f7a2146e19cf7b.png" width="250" alt="AI对话"/>
   <img src="images/3e798895fc8dcccdf318868e37806bd4.png" width="250" alt="训练计划生成"/>
@@ -785,6 +788,8 @@ AlertDialog(
 </p>
 
 ### 训练记录与数据统计
+### Training Log & Statistics
+
 <p align="center">
   <img src="images/6a252d9e9dc99cb4692d194ce0b3eec0.png" width="250" alt="训练记录"/>
   <img src="images/79c74e944449ff4838178a72a3ea11f4.png" width="250" alt="数据统计"/>
@@ -792,6 +797,8 @@ AlertDialog(
 </p>
 
 ### 动作库与身体数据
+### Exercise Library & Body Data
+
 <p align="center">
   <img src="images/f883a44a20f92f11579925f430029cf6.png" width="250" alt="动作库"/>
 </p>
@@ -948,38 +955,39 @@ AlertDialog(
    - *Security control: Unified security policies and audit logs*
 
 ## 项目结构
+## Project Structure
 
 ```
 .
-├── app/                          # Android应用
+├── app/                          # Android应用 / Android App
 │   ├── src/main/
 │   │   ├── java/com/fitness/training/
-│   │   │   ├── data/            # 数据层
-│   │   │   │   ├── entity/      # 实体类
-│   │   │   │   ├── dao/         # 数据访问对象
-│   │   │   │   └── database/    # 数据库配置
-│   │   │   ├── network/         # 网络层
-│   │   │   ├── ui/              # UI层
-│   │   │   ├── util/            # 工具类
-│   │   │   ├── ai/              # AI助手
-│   │   │   └── config/          # 配置
-│   │   └── res/                 # 资源文件
+│   │   │   ├── data/            # 数据层 / Data Layer
+│   │   │   │   ├── entity/      # 实体类 / Entity Classes
+│   │   │   │   ├── dao/         # 数据访问对象 / Data Access Objects
+│   │   │   │   └── database/    # 数据库配置 / Database Configuration
+│   │   │   ├── network/         # 网络层 / Network Layer
+│   │   │   ├── ui/              # UI层 / UI Layer
+│   │   │   ├── util/            # 工具类 / Utility Classes
+│   │   │   ├── ai/              # AI助手 / AI Assistant
+│   │   │   └── config/          # 配置 / Configuration
+│   │   └── res/                 # 资源文件 / Resources
 │   └── build.gradle.kts
-├── fitness-server/              # Spring Boot后端
+├── fitness-server/              # Spring Boot后端 / Spring Boot Backend
 │   ├── src/main/
 │   │   ├── java/com/fitness/server/
-│   │   │   ├── agent/           # AI Agent系统
-│   │   │   ├── knowledge/       # RAG知识库
-│   │   │   ├── controller/      # 控制器
-│   │   │   ├── service/         # 业务逻辑
-│   │   │   ├── entity/          # 实体类
-│   │   │   ├── mapper/          # MyBatis映射
-│   │   │   └── util/            # 工具类
+│   │   │   ├── agent/           # AI Agent系统 / AI Agent System
+│   │   │   ├── knowledge/       # RAG知识库 / RAG Knowledge Base
+│   │   │   ├── controller/      # 控制器 / Controllers
+│   │   │   ├── service/         # 业务逻辑 / Business Logic
+│   │   │   ├── entity/          # 实体类 / Entity Classes
+│   │   │   ├── mapper/          # MyBatis映射 / MyBatis Mappers
+│   │   │   └── util/            # 工具类 / Utility Classes
 │   │   └── resources/
-│   │       ├── application.yml  # 配置文件（需自行创建）
-│   │       ├── schema.sql       # 数据库脚本
-│   │       ├── sql/             # 数据库迁移脚本
-│   │       └── knowledge/       # 知识库文档
+│   │       ├── application.yml  # 配置文件（需自行创建）/ Config (need to create)
+│   │       ├── schema.sql       # 数据库脚本 / Database Scripts
+│   │       ├── sql/             # 数据库迁移脚本 / DB Migration Scripts
+│   │       └── knowledge/       # 知识库文档 / Knowledge Documents
 │   └── pom.xml
 └── README.md
 ```
