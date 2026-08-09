@@ -737,21 +737,39 @@ AlertDialog(
 ✅ ***User Control**: Can choose to recover, delete, or handle later*
 
 ### 🏗️ 架构设计
+### 🏗️ Architecture Design
 
 **Android端：MVVM + Room + Coroutines**
+
+*Android: MVVM + Room + Coroutines*
+
 - 完全本地化数据存储，离线可用
+  - *Complete local data storage, offline capable*
 - 云端同步为可选功能，非强制
+  - *Cloud sync is optional, not mandatory*
 
 **后端：Spring Boot + MyBatis-Plus**
+
+*Backend: Spring Boot + MyBatis-Plus*
+
 - RESTful API设计
+  - *RESTful API design*
 - JWT认证 + Spring Security
+  - *JWT authentication + Spring Security*
 - 幂等性保证和事务一致性
+  - *Idempotency guarantee and transactional consistency*
 
 ### 🔒 隐私与安全
+### 🔒 Privacy & Security
+
 - ✅ 数据默认完全本地存储
+  - *Data stored locally by default*
 - ✅ AI操作需要用户明确确认
+  - *AI operations require explicit user confirmation*
 - ✅ 云端同步为可选功能
+  - *Cloud sync is optional*
 - ✅ 敏感医疗建议自动拦截
+  - *Sensitive medical advice automatically intercepted*
 
 ## 📱 应用截图
 
@@ -779,74 +797,155 @@ AlertDialog(
 </p>
 
 ## 🚀 核心功能
+## 🚀 Core Features
 
 ### AI智能助手系统
+### AI Assistant System
+
 与传统的固定模板不同，AI助手能理解你的具体情况：
+
+*Unlike traditional fixed templates, the AI assistant understands your specific situation:*
+
 - 💬 **自然语言交互**: "我想增肌，一周练3天" → AI生成个性化训练计划
+  - *Natural language interaction: "I want to build muscle, train 3 days a week" → AI generates personalized training plan*
 - 🎯 **多Agent协作**: Supervisor理解意图 → 专业Agent执行 → 确保建议的专业性
+  - *Multi-Agent collaboration: Supervisor understands intent → Specialized agents execute → Ensures professional advice*
 - ✏️ **可编辑草案**: AI生成的计划可预览和修改，不是黑盒
+  - *Editable drafts: AI-generated plans are previewable and modifiable, not a black box*
 - 🔄 **本地写入恢复**: 网络异常自动保存，防止数据丢失
+  - *Local write recovery: Auto-saves on network failure, prevents data loss*
 - 📚 **知识库支持**: 基于专业健身知识，而非随机生成
+  - *Knowledge base support: Based on professional fitness knowledge, not random generation*
 
 ### 训练记录
+### Training Log
+
 完整记录训练过程，为AI分析提供数据基础：
-- 📝 详细记录：动作、组数、重量、次数、超级组
+
+*Complete training records provide data foundation for AI analysis:*
+
+- �  详细记录：动作、组数、重量、次数、超级组
+  - *Detailed logging: Exercises, sets, weight, reps, supersets*
 - 📊 自动计算：训练量、训练强度、容量统计
+  - *Auto-calculation: Training volume, intensity, capacity statistics*
 - 🏋️ 模板系统：常用训练快速开始
+  - *Template system: Quick start for common workouts*
 - 📈 AI分析：识别训练瓶颈和进步空间
+  - *AI analysis: Identify training bottlenecks and improvement opportunities*
 
 ### 数据统计与分析
+### Statistics & Analysis
+
 不只是展示数据，更提供洞察：
+
+*Not just displaying data, but providing insights:*
+
 - 📉 可视化图表：训练趋势、肌肉群分析
+  - *Visual charts: Training trends, muscle group analysis*
 - 🏆 个人记录追踪：PR突破自动识别
+  - *Personal record tracking: PR breakthroughs auto-identified*
 - 🧮 1RM计算器：科学评估力量水平
+  - *1RM calculator: Scientific strength level assessment*
 - 🤖 AI进度分析：发现问题，提出改进建议
+  - *AI progress analysis: Identify issues, suggest improvements*
 
 ### 饮食管理
+### Diet Management
+
 训练和饮食联动分析：
+
+*Integrated training and diet analysis:*
+
 - 🍎 200+食物数据库：快速记录
+  - *200+ food database: Quick logging*
 - 📊 营养成分自动计算：蛋白质、碳水、脂肪
+  - *Auto-calculate nutrition: Protein, carbs, fat*
 - 🎯 AI饮食建议：结合训练强度和目标
+  - *AI diet advice: Based on training intensity and goals*
 - 📝 自定义食物：扩展数据库
+  - *Custom foods: Extend the database*
 
 ### 身体数据追踪
+### Body Data Tracking
+
 为AI提供全面的分析维度：
+
+*Provide comprehensive dimensions for AI analysis:*
+
 - ⚖️ 多维度记录：体重、体脂率、围度
+  - *Multi-dimensional records: Weight, body fat %, measurements*
 - 📈 变化曲线：可视化进步
+  - *Change curves: Visualize progress*
 - 🎯 目标管理：设定目标，追踪进度
+  - *Goal management: Set goals, track progress*
 
 ## 🛠️ 技术栈
+## 🛠️ Tech Stack
 
 ### Android客户端
+### Android Client
+
 - **语言**: Kotlin - 现代化、安全的Android开发语言
+  - *Language: Kotlin - Modern, safe Android development language*
 - **架构**: MVVM - 清晰的职责分离，易于测试和维护
+  - *Architecture: MVVM - Clear separation of concerns, easy to test and maintain*
 - **数据库**: Room - 类型安全的SQLite抽象层，完全本地化
+  - *Database: Room - Type-safe SQLite abstraction, completely local*
 - **网络**: Retrofit + OkHttp - 可靠的HTTP客户端
+  - *Network: Retrofit + OkHttp - Reliable HTTP client*
 - **异步**: Coroutines - 简洁的异步编程
+  - *Async: Coroutines - Concise asynchronous programming*
 - **图表**: MPAndroidChart - 专业的数据可视化
+  - *Charts: MPAndroidChart - Professional data visualization*
 - **图片**: Glide - 高效的图片加载
+  - *Images: Glide - Efficient image loading*
 
 ### 后端服务器
+### Backend Server
+
 - **框架**: Spring Boot 3.2.0 - 成熟稳定的企业级框架
+  - *Framework: Spring Boot 3.2.0 - Mature and stable enterprise framework*
 - **数据库**: MySQL - 可靠的关系型数据库
+  - *Database: MySQL - Reliable relational database*
 - **ORM**: MyBatis-Plus - 灵活的数据访问层
+  - *ORM: MyBatis-Plus - Flexible data access layer*
 - **认证**: JWT - 无状态的身份验证
+  - *Authentication: JWT - Stateless authentication*
 - **安全**: Spring Security - 企业级安全框架
+  - *Security: Spring Security - Enterprise security framework*
 - **AI**: DeepSeek LLM - 高性能的中文大模型
+  - *AI: DeepSeek LLM - High-performance Chinese LLM*
 - **向量数据库**: Qdrant - 专业的向量检索
+  - *Vector DB: Qdrant - Professional vector search*
 - **Embedding**: Ollama - 本地化的向量化服务
+  - *Embedding: Ollama - Local vectorization service*
 
 ### 架构设计理念
+### Architecture Design Philosophy
+
 **为什么选择本地优先架构？**
+
+***Why Choose Local-First Architecture?***
+
 1. **隐私保护**: 敏感的身体和训练数据不强制上云
+   - *Privacy protection: Sensitive body and training data not forced to cloud*
 2. **离线可用**: 核心功能不依赖网络
+   - *Offline capability: Core features don't depend on network*
 3. **性能优越**: 本地操作响应迅速
+   - *Superior performance: Local operations respond instantly*
 4. **成本可控**: 用户可选择是否使用云端服务
+   - *Cost control: Users choose whether to use cloud services*
 
 **为什么AI操作需要后端？**
+
+***Why Do AI Operations Need Backend?***
+
 1. **算力要求**: LLM推理需要GPU资源
+   - *Computational requirements: LLM inference requires GPU resources*
 2. **知识库**: RAG检索需要向量数据库
+   - *Knowledge base: RAG retrieval requires vector database*
 3. **安全控制**: 统一的安全策略和审计日志
+   - *Security control: Unified security policies and audit logs*
 
 ## 项目结构
 
@@ -886,29 +985,45 @@ AlertDialog(
 ```
 
 ## 快速开始
+## Quick Start
 
 ### Android客户端
+### Android Client
 
 #### 环境要求
+#### Requirements
+
 - Android Studio Arctic Fox或更高版本
+  - *Android Studio Arctic Fox or higher*
 - JDK 17
 - Android SDK 24+（最低支持Android 7.0）
+  - *Android SDK 24+ (Minimum Android 7.0)*
 
 #### 构建步骤
-1. 克隆项目
+#### Build Steps
+
+1. 克隆项目 / *Clone the project*
 ```bash
-git clone https://github.com/wua520/fitness-app.git
-cd fitness-app
+git clone https://github.com/wua520/GL-APP.git
+cd GL-APP
 ```
 
 2. 打开Android Studio，导入项目
+   - *Open Android Studio and import the project*
 
 3. 同步Gradle依赖
+   - *Sync Gradle dependencies*
 
 4. 运行应用
+   - *Run the app*
 
 #### 签名配置（可选）
+#### Signing Configuration (Optional)
+
 如果需要生成release版本，创建`keystore.properties`文件：
+
+*To generate a release version, create a `keystore.properties` file:*
+
 ```properties
 storeFile=your-keystore-file.jks
 storePassword=your-store-password
@@ -917,18 +1032,27 @@ keyPassword=your-key-password
 ```
 
 ### 后端服务器（可选）
+### Backend Server (Optional)
 
 **注意**: AI助手功能需要后端服务器支持。应用可以完全离线使用基础功能，后端服务器用于云端同步和AI助手。
 
+***Note**: AI assistant features require backend server. The app can be used completely offline for basic features; backend server is for cloud sync and AI assistant.*
+
 #### 环境要求
+#### Requirements
+
 - JDK 17
 - MySQL 8.0+
 - Maven 3.6+
 - DeepSeek API Key（用于AI功能）
+  - *DeepSeek API Key (for AI features)*
 - Qdrant向量数据库（可选，用于RAG知识库）
+  - *Qdrant vector database (optional, for RAG knowledge base)*
 
 #### 部署步骤
-1. 创建数据库
+#### Deployment Steps
+
+1. 创建数据库 / *Create database*
 ```bash
 mysql -u root -p
 CREATE DATABASE fitness_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -941,8 +1065,12 @@ source fitness-server/src/main/resources/sql/agent_migration_local_write.sql;
 source fitness-server/src/main/resources/sql/f2_knowledge_base.sql;
 ```
 
-2. 配置应用
+2. 配置应用 / *Configure application*
+
 创建`fitness-server/src/main/resources/application-local.yml`：
+
+*Create `fitness-server/src/main/resources/application-local.yml`:*
+
 ```yaml
 server:
   port: 8080
@@ -956,14 +1084,14 @@ spring:
 
 jwt:
   secret: your-jwt-secret-key-at-least-32-characters-long
-  expiration: 604800000  # 7天
+  expiration: 604800000  # 7天 / 7 days
 
-# AI配置
+# AI配置 / AI Configuration
 deepseek:
   api-key: your-deepseek-api-key
   base-url: https://api.deepseek.com
 
-# RAG知识库配置（可选）
+# RAG知识库配置（可选）/ RAG Knowledge Base Configuration (Optional)
 knowledge:
   enabled: true
   qdrant:
@@ -971,30 +1099,40 @@ knowledge:
     port: 6333
   embedding:
     model: nomic-embed-text
-    base-url: http://localhost:11434  # Ollama服务地址
+    base-url: http://localhost:11434  # Ollama服务地址 / Ollama service address
 ```
 
 3. 启动Qdrant（可选，用于RAG知识库）
+   
+   *Start Qdrant (Optional, for RAG knowledge base)*
+
 ```bash
 docker run -p 6333:6333 qdrant/qdrant
 ```
 
 4. 启动Ollama（可选，用于本地embedding）
+   
+   *Start Ollama (Optional, for local embedding)*
+
 ```bash
-# 安装Ollama后运行
+# 安装Ollama后运行 / After installing Ollama, run:
 ollama pull nomic-embed-text
 ollama serve
 ```
 
-5. 启动服务器
+5. 启动服务器 / *Start server*
 ```bash
 cd fitness-server
 mvn clean package
 java -jar target/fitness-server-1.0.0.jar --spring.profiles.active=local
 ```
 
-4. 修改Android客户端配置
+4. 修改Android客户端配置 / *Configure Android client*
+
 在`app/src/main/java/com/fitness/training/config/AppConfig.kt`中：
+
+*In `app/src/main/java/com/fitness/training/config/AppConfig.kt`:*
+
 ```kotlin
 object Server {
     const val CLOUD_ENABLED = true
@@ -1003,19 +1141,32 @@ object Server {
 ```
 
 ## 配置说明
+## Configuration
 
 ### 功能开关
+### Feature Toggles
+
 在`AppConfig.kt`中可以控制功能开关：
-- `CLOUD_ENABLED`: 是否启用云端同步
-- `AI_ENABLED`: 是否启用AI助手
-- `SHOW_CLOUD_ACCOUNT`: 是否显示云端账号功能
-- `SHOW_AI_ASSISTANT`: 是否显示AI助手入口
+
+*Control feature toggles in `AppConfig.kt`:*
+
+- `CLOUD_ENABLED`: 是否启用云端同步 / *Enable cloud sync*
+- `AI_ENABLED`: 是否启用AI助手 / *Enable AI assistant*
+- `SHOW_CLOUD_ACCOUNT`: 是否显示云端账号功能 / *Show cloud account features*
+- `SHOW_AI_ASSISTANT`: 是否显示AI助手入口 / *Show AI assistant entry*
 
 ### AI助手配置
+### AI Assistant Configuration
+
 要使用AI助手功能，需要：
 
+*To use AI assistant features, you need:*
+
 1. **后端配置**: 在`application-local.yml`中配置DeepSeek API密钥
+   - *Backend configuration: Configure DeepSeek API key in `application-local.yml`*
 2. **Android配置**: 确保`AppConfig.kt`中启用AI功能
+   - *Android configuration: Ensure AI features are enabled in `AppConfig.kt`*
+
 ```kotlin
 object Features {
     const val AI_ENABLED = true
@@ -1029,56 +1180,95 @@ object Server {
 ```
 
 ### RAG知识库（可选）
+### RAG Knowledge Base (Optional)
+
 知识库功能可以让AI助手提供更专业的建议：
+
+*Knowledge base enables AI assistant to provide more professional advice:*
+
 - 默认包含训练原理、营养基础、恢复知识等专业文档
+  - *Includes training principles, nutrition basics, recovery knowledge, and other professional documents by default*
 - 支持自定义添加知识文档（YAML格式）
+  - *Supports custom knowledge documents (YAML format)*
 - 使用向量检索提供相关上下文
+  - *Uses vector search to provide relevant context*
 
 ## 应用特色
+## App Features
 
 - **AI智能助手**: 专业的训练、饮食、进度分析Agent系统
+  - *AI Assistant: Professional training, diet, and progress analysis Agent system*
 - **多Agent协作**: Supervisor统筹调度，专业领域分工明确
+  - *Multi-Agent Collaboration: Supervisor orchestration with clear domain specialization*
 - **本地优先**: 完全本地存储，AI生成内容可离线编辑
+  - *Local-First: Complete local storage, AI-generated content editable offline*
 - **界面简洁**: 采用灰白配色，专业低调
+  - *Clean Interface: Gray-white color scheme, professional and understated*
 - **数据本地**: 完全本地存储，保护隐私
+  - *Data Local: Complete local storage, privacy protection*
 - **完全免费**: 无广告，无内购
+  - *Completely Free: No ads, no in-app purchases*
 - **离线使用**: 基础功能无需网络即可使用
+  - *Offline Usage: Basic features work without network*
 - **支持深色模式**: 适应不同使用场景
+  - *Dark Mode Support: Adapts to different usage scenarios*
 - **安全可控**: AI操作需用户确认，支持本地写入恢复
+  - *Safe and Controllable: AI operations require user confirmation, supports local write recovery*
 
 ## 版本信息
+## Version Info
 
-- **当前版本**: 1.0
-- **最低Android版本**: Android 7.0 (API 24)
-- **目标Android版本**: Android 14 (API 34)
+- **当前版本**: 1.0 / *Current Version: 1.0*
+- **最低Android版本**: Android 7.0 (API 24) / *Minimum Android: Android 7.0 (API 24)*
+- **目标Android版本**: Android 14 (API 34) / *Target Android: Android 14 (API 34)*
 
 ## 隐私政策
+## Privacy Policy
 
 应用数据完全存储在本地设备，不会上传到任何服务器（除非用户主动启用云端同步功能）。
 
+*App data is stored completely on the local device and will not be uploaded to any server (unless the user actively enables cloud sync).*
+
 详细隐私政策：[隐私政策](https://gist.githubusercontent.com/wua520/31ef1480afc1b3bfe1c7b1e1f41d453f/raw)
 
+*Detailed Privacy Policy: [Privacy Policy](https://gist.githubusercontent.com/wua520/31ef1480afc1b3bfe1c7b1e1f41d453f/raw)*
+
 ## 用户协议
+## Terms of Service
 
 [用户协议](https://gist.githubusercontent.com/wua520/4f5e6d27f7c5d165a3c400dc947b0ddf/raw)
 
-## 开发者
+*[Terms of Service](https://gist.githubusercontent.com/wua520/4f5e6d27f7c5d165a3c400dc947b0ddf/raw)*
 
-- **邮箱**: w303363639@gmail.com
+## 开发者
+## Developer
+
+- **邮箱 / Email**: w303363639@gmail.com
 
 ## 许可证
+## License
 
 本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
 
+*This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.*
+
 ## 贡献
+## Contributing
 
 欢迎提交Issue和Pull Request！
 
+*Issues and Pull Requests are welcome!*
+
 ## 致谢
+## Acknowledgments
 
 感谢所有开源库的作者和贡献者。
+
+*Thanks to all open-source library authors and contributors.*
 
 ---
 
 **注意**: 本项目仅供学习交流使用。
+
+***Note**: This project is for learning and communication purposes only.*
 "" 
