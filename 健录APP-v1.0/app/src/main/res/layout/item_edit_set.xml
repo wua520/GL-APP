@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="6dp">
+
+    <TextView
+        android:id="@+id/tv_set_number"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:text="第1组"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        app:boxCornerRadiusBottomEnd="6dp"
+        app:boxCornerRadiusBottomStart="6dp"
+        app:boxCornerRadiusTopEnd="6dp"
+        app:boxCornerRadiusTopStart="6dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="重量"
+            android:textSize="12sp"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="kg ×"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:layout_marginEnd="8dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+        app:boxCornerRadiusBottomEnd="6dp"
+        app:boxCornerRadiusBottomStart="6dp"
+        app:boxCornerRadiusTopEnd="6dp"
+        app:boxCornerRadiusTopStart="6dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_reps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="次数"
+            android:textSize="12sp"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="次"
+        android:textColor="@color/text_secondary"
+        android:textSize="12sp"
+        android:layout_marginEnd="4dp" />
+
+    <ImageButton
+        android:id="@+id/btn_delete_set"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_remove"
+        android:contentDescription="删除组" />
+
+</LinearLayout>

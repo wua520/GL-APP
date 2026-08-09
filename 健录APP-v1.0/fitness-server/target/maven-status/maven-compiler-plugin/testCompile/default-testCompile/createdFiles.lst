@@ -1,0 +1,10 @@
+com\fitness\server\agent\ToolContractConsistencyTest.class
+com\fitness\server\agent\AgentStateMachineTest.class
+com\fitness\server\knowledge\KnowledgeAgentTest$StubSearch.class
+com\fitness\server\agent\AgentStateMachineTest$TestFixture.class
+com\fitness\server\knowledge\KnowledgeRetrieverTest.class
+com\fitness\server\service\AgentTaskEventServiceTest.class
+com\fitness\server\agent\F1aContractSafetyTest.class
+com\fitness\server\agent\NutritionAgentContractTest.class
+com\fitness\server\knowledge\KnowledgeAgentTest.class
+com\fitness\server\service\SyncFailureContractTest.class

@@ -1,0 +1,13 @@
+documentKey: product-help
+version: "2026.03-p0"
+title: 健录功能说明
+category: HELP
+sourceName: 健录产品组
+sourceUrl: https://example.invalid/fitness/verified/product-help
+reviewStatus: APPROVED
+riskLevel: P0
+allowedForAdvice: true
+scope: 产品使用说明；不包含用户数据
+content: |
+  当用户要求记录训练、饮食或训练计划时，应用会先形成可确认的草案，用户确认后才执行保存。查询用户已有记录时，应使用对应的查询能力；通用知识不能替代实时查询。
+  知识补充不可创建、修改或删除训练、饮食、身体记录及计划，也不可改变待确认操作的状态。

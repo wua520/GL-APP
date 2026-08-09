@@ -1,0 +1,13 @@
+documentKey: recovery-basics
+version: "2026.03-p0"
+title: 训练恢复常识
+category: RECOVERY
+sourceName: 健录审核知识组
+sourceUrl: https://example.invalid/fitness/verified/recovery-basics
+reviewStatus: APPROVED
+riskLevel: P0
+allowedForAdvice: true
+scope: 通用恢复建议；持续或严重症状需要专业评估
+content: |
+  恢复应包含足够睡眠、适度活动、规律饮食和训练负荷管理。疲劳、酸痛和表现变化需要结合持续趋势判断，不应只依据一次训练或一次主观感受下结论。若出现尖锐疼痛、明显肿胀、晕厥或持续异常症状，应停止相关活动并寻求专业帮助。
+  知识内容只解释恢复原则，不生成用户的睡眠、疼痛、训练完成情况或身体指标，也不创建任何业务草案。

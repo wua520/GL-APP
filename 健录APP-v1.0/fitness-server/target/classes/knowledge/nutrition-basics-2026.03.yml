@@ -1,0 +1,13 @@
+documentKey: nutrition-basics
+version: "2026.03-p0"
+title: 基础营养常识
+category: NUTRITION
+sourceName: 健录审核知识组
+sourceUrl: https://example.invalid/fitness/verified/nutrition-basics
+reviewStatus: APPROVED
+riskLevel: P0
+allowedForAdvice: true
+scope: 通用营养常识；不替代个体化医疗或营养诊断
+content: |
+  日常饮食可从整体能量、蛋白质、碳水化合物、脂肪、膳食纤维和饮水等维度观察。单次饮食不能代表全天摄入，饮食建议应结合持续记录和个人目标进行解释。任何具体食物、份量和日期记录，都必须来自用户输入或既有饮食查询工具，不能由知识库推断。
+  对有慢性病、妊娠、进食障碍史或正在使用药物的人群，涉及限制性饮食和补剂的建议应交由合格专业人士评估。

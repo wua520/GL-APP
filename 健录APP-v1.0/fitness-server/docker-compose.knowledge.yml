@@ -1,0 +1,23 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.13.4
+    container_name: fitness-knowledge-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant-storage:/qdrant/storage
+
+  ollama:
+    image: ollama/ollama:0.5.13
+    container_name: fitness-knowledge-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-storage:/root/.ollama
+
+volumes:
+  qdrant-storage:
+  ollama-storage:

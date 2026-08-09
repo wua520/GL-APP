@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="4dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="60dp"
+        app:cardBackgroundColor="@color/primary"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp">
+
+        <TextView
+            android:id="@+id/tv_user_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </com.google.android.material.card.MaterialCardView>
+</FrameLayout>

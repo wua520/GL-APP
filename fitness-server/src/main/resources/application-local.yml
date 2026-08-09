@@ -1,0 +1,27 @@
+# ============================================================================
+# 本地私密配置文件 - 不会提交到 Git（已在 .gitignore 中）
+# ============================================================================
+# 此文件包含真实的密钥和密码，只存在于你的电脑和服务器上
+# 不要分享或上传此文件！
+# ============================================================================
+
+spring:
+  datasource:
+    password: 15730046932  # 数据库密码
+
+jwt:
+  secret: fitness-app-secret-key-2024-very-long-secret-key-for-jwt-token  # JWT密钥
+
+deepseek:
+  api-key: sk-931db667c29e4893b4ebbc4375df61e6  # DeepSeek API KEY
+
+# 本机 RAG：审核资料导入、向量重建及检索增强。
+knowledge:
+  enabled: true
+  import-seeds-on-start: true
+  rebuild-on-start: false
+  retrieval:
+    # 当前已审核训练资料的语义相似度约为 0.67；保留审核复核作为最终准入边界。
+    score-threshold: 0.65
+    connect-timeout-ms: 3000
+    read-timeout-ms: 60000

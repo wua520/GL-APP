@@ -1,0 +1,13 @@
+documentKey: training-principles
+version: "2026.03-p0"
+title: 基础训练原则
+category: TRAINING
+sourceName: 健录审核知识组
+sourceUrl: https://example.invalid/fitness/verified/training-principles
+reviewStatus: APPROVED
+riskLevel: P0
+allowedForAdvice: true
+scope: 通用训练原理；不替代个体诊断、实时训练记录或医疗建议
+content: |
+  渐进负荷应以可恢复为前提，训练量、强度或动作难度不应同时大幅增加。初学者应优先建立稳定动作模式和规律频率，再逐步调整训练变量。出现持续疼痛、眩晕、胸痛或异常呼吸困难时，应停止训练并寻求专业帮助。
+  训练建议只能解释通用原理。用户当天是否训练、完成了什么以及已有训练计划，必须以应用内实时数据和既有业务查询结果为准。

@@ -1,0 +1,29 @@
+# ============================================================================
+# 本地私密配置文件模板
+# ============================================================================
+# 使用方法：
+# 1. 复制此文件并改名为 application-local.yml
+# 2. 填入你自己的真实密钥和密码
+# 3. application-local.yml 不会被提交到 Git（已在 .gitignore 中保护）
+# ============================================================================
+
+spring:
+  datasource:
+    password: 你的数据库密码  # 例如：123456
+
+jwt:
+  secret: 你的JWT密钥（至少32位字符）  # 例如：my-super-secret-jwt-key-2024-min-32-chars
+
+deepseek:
+  api-key: 你的DeepSeek_API_KEY  # 从 https://platform.deepseek.com/ 获取
+
+# 可选：仅在已启动 docker compose 且完成 `ollama pull nomic-embed-text` 后开启。
+# 将 rebuild-on-start 临时设为 true 可用 MySQL 审核分块重建整个 Qdrant 集合；成功后应改回 false。
+knowledge:
+  enabled: false
+  rebuild-on-start: false
+  qdrant:
+    base-url: http://127.0.0.1:6333
+  ollama:
+    base-url: http://127.0.0.1:11434
+    embedding-model: nomic-embed-text
