@@ -480,19 +480,36 @@ User Question → Vectorize Query
 > *Knowledge Source: nutrition-basics-2026.03.yml*
 
 ### 🔄 本地写入恢复机制（Local Write Recovery）
+### 🔄 Local Write Recovery Mechanism
 
 #### 问题场景
+#### Problem Scenario
+
 想象这个场景：
+
+*Imagine this scenario:*
+
 1. 用户跟AI说"给我生成一个增肌计划"
+   - *User tells AI "Generate a muscle building plan for me"*
 2. AI花了30秒，生成了一个完整的4天训练计划
+   - *AI takes 30 seconds to generate a complete 4-day training plan*
 3. 用户查看后很满意，点击"保存到本地"
+   - *User reviews it, satisfied, clicks "Save locally"*
 4. **网络突然断了**，保存失败
+   - ***Network suddenly drops**, save fails*
 5. 用户返回，AI生成的计划消失了
+   - *User goes back, AI-generated plan is gone*
 
 **这是灾难性的用户体验**：
+
+***This is a catastrophic user experience**:*
+
 - 用户浪费了时间（AI生成需要时间）
+  - *User wasted time (AI generation takes time)*
 - 用户失去了内容（可能再也生成不出一模一样的）
+  - *User lost content (may never generate the exact same thing again)*
 - 用户不信任系统（害怕再次丢失）
+  - *User loses trust in the system (afraid of losing data again)*
 
 #### 传统方案的问题
 
@@ -506,120 +523,157 @@ User Question → Vectorize Query
 - 缺点：没网就不能用AI，体验差
 
 #### 我们的Local Write Recovery方案
+#### Our Local Write Recovery Solution
 
 ##### 核心思想：
+##### Core Idea:
+
 1. **AI生成的内容立即可见可编辑**（不立即保存）
+   - *AI-generated content is immediately visible and editable (not saved immediately)*
 2. **用户确认后，才尝试保存到数据库**
+   - *Only attempt to save to database after user confirmation*
 3. **保存失败时，自动记录到本地草案**
+   - *When save fails, automatically record to local draft*
 4. **重新联网时，提醒用户恢复**
+   - *When reconnected, remind user to recover*
 
 ##### 技术流程
+##### Technical Flow
 
 ```
 第1步：AI生成内容
+Step 1: AI Generates Content
 ┌─────────────┐
-│ 用户请求    │
+│ 用户请求 / User Request │
 └──────┬──────┘
        ↓
 ┌─────────────┐
-│ AI生成计划  │ (在服务器端完成)
+│ AI生成计划 / AI Generates Plan │ (在服务器端完成 / Completed on server)
 └──────┬──────┘
        ↓
 ┌─────────────┐
-│ 返回给前端  │ (JSON格式，还不是数据库记录)
+│ 返回给前端 / Return to Frontend │ (JSON格式，还不是数据库记录 / JSON format, not yet DB record)
 └──────┬──────┘
        ↓
 ┌─────────────┐
-│ 前端展示预览│ (用户可编辑)
+│ 前端展示预览 / Frontend Preview │ (用户可编辑 / User can edit)
 └─────────────┘
 
 第2步：用户确认保存
+Step 2: User Confirms Save
 ┌─────────────┐
-│ 用户点击确认│
+│ 用户点击确认 / User Clicks Confirm │
 └──────┬──────┘
        ↓
 ┌─────────────┐
-│ 调用保存API │ POST /api/agent/training/save-draft
+│ 调用保存API / Call Save API │ POST /api/agent/training/save-draft
 └──────┬──────┘
        ↓
-    成功？
+    成功？/ Success?
     /    \
-   是      否（网络异常）
+   是/Yes  否（网络异常）/ No (Network Error)
    ↓       ↓
   保存到   自动保存LocalWriteReference到本地数据库
-  服务器   {
-           agent_action_id: "xxx",
+  服务器   Auto-save LocalWriteReference to local DB
+  Save to  {
+  Server   agent_action_id: "xxx",
            data_type: "training_plan",
-           local_data: {计划的完整JSON},
+           local_data: {计划的完整JSON / Complete plan JSON},
            retry_count: 0
            }
 
 第3步：恢复机制
+Step 3: Recovery Mechanism
 用户下次打开APP或重新联网
+User reopens app or reconnects
        ↓
   检查本地是否有LocalWriteReference
+  Check if LocalWriteReference exists locally
        ↓
-    有待恢复数据？
+    有待恢复数据？/ Pending recovery data?
        ↓
   显示恢复提示："您有1个训练计划待保存"
+  Show recovery prompt: "You have 1 training plan pending save"
        ↓
-  用户点击"重试"
+  用户点击"重试" / User clicks "Retry"
        ↓
-  再次调用保存API
+  再次调用保存API / Call save API again
        ↓
-    成功？
+    成功？/ Success?
      ↓
   删除LocalWriteReference
+  Delete LocalWriteReference
 ```
 
 ##### 技术细节
+##### Technical Details
 
 **1. 幂等性保证**
+
+***1. Idempotency Guarantee***
+
 问题：用户点了2次"重试"，会不会保存2个一样的计划？
 
+*Problem: If user clicks "Retry" twice, will it save duplicate plans?*
+
 解决：使用`agent_action_id`作为幂等键
+
+*Solution: Use `agent_action_id` as idempotency key*
+
 ```java
 @Transactional
 public void saveDraft(TrainingPlanDraft draft) {
     // 检查是否已经保存过
+    // Check if already saved
     TrainingPlan existing = planDao.findByAgentActionId(
         draft.getAgentActionId()
     );
     
     if (existing != null) {
         // 已经保存过，返回成功（幂等）
+        // Already saved, return success (idempotent)
         return;
     }
     
     // 没保存过，执行保存
+    // Not saved yet, proceed with save
     planDao.insert(draft.toEntity());
 }
 ```
 
 **2. 数据一致性**
+
+***2. Data Consistency***
+
 问题：如果保存了一半，数据库崩了怎么办？
 
+*Problem: What if the database crashes halfway through saving?*
+
 解决：使用Spring事务 + agent_action_id关联
+
+*Solution: Use Spring transactions + agent_action_id association*
+
 ```java
 @Transactional
 public void saveTrainingPlan(TrainingPlanDraft draft) {
-    // 1. 保存主记录
+    // 1. 保存主记录 / Save main record
     TrainingPlan plan = planDao.insert(draft.getPlan());
     
-    // 2. 保存关联的动作
+    // 2. 保存关联的动作 / Save associated exercises
     for (Exercise ex : draft.getExercises()) {
         ex.setPlanId(plan.getId());
         ex.setAgentActionId(draft.getAgentActionId());
         exerciseDao.insert(ex);
     }
     
-    // 3. 更新AgentAction状态
+    // 3. 更新AgentAction状态 / Update AgentAction status
     agentActionDao.updateStatus(
         draft.getAgentActionId(), 
         "COMPLETED"
     );
     
     // 事务提交：要么全成功，要么全失败
+    // Transaction commit: all succeed or all fail
 }
 ```
 
@@ -664,11 +718,23 @@ AlertDialog(
 - 点击"删除草案"→ 清理掉
 
 #### 技术优势总结
+#### Technical Advantages Summary
 
 ✅ **永不丢失数据**：AI生成的内容总能找回
+
+✅ ***Never Lose Data**: AI-generated content can always be recovered*
+
 ✅ **离线友好**：网络不好也能用
+
+✅ ***Offline-Friendly**: Works even with poor network*
+
 ✅ **幂等性保证**：重试不会重复保存
+
+✅ ***Idempotency Guarantee**: Retrying won't create duplicates*
+
 ✅ **用户可控**：可选择恢复、删除或稍后处理
+
+✅ ***User Control**: Can choose to recover, delete, or handle later*
 
 ### 🏗️ 架构设计
 
